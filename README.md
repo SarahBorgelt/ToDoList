@@ -6,6 +6,8 @@ Live Demo: [https://sarahborgelt.github.io/ToDoList/](https://sarahborgelt.githu
 
 This is a simple, interactive To-Do List web application built with HTML, CSS, and JavaScript. Users can add new tasks, mark them as complete, or remove them with a double-click. The project is designed to demonstrate DOM manipulation and event handling in JavaScript.
 
+![Screenshot](ToDo.png)
+
 ## 🚀 Features
 
 - ✅ Add new to-do items
