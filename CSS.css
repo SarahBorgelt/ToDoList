@@ -101,3 +101,75 @@ li:hover{
 li.checked {
   text-decoration: line-through;
 }
+
+/* --- Mobile & Tablet Styles --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 3em 1.5em;
+    margin: 2em auto;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+
+  #to-do-input {
+    width: 95%;
+    margin: 0.5em auto; /* center input */
+    text-align: center;
+  }
+
+  #to-do-button {
+    width: 70%;
+    margin: 0.5em auto; /* center button */
+    display: block;
+  }
+
+  #to-do-list {
+    margin: 1em auto;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  li {
+    width: 95%;
+    margin: 0.4em auto; /* center list items */
+    padding: 1em;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 2em 1em;
+    margin: 2em auto 6em auto;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  #to-do-input {
+    width: 95%;
+    margin: 0.5em auto;
+    padding: 0.5em;
+  }
+
+  #to-do-button {
+    width: 80%;
+    margin: 0.5em auto;
+    display: block;
+  }
+
+  #to-do-list {
+    margin: 1em auto;
+    padding-left: 0;
+  }
+
+  li {
+    width: 95%;
+    padding: 0.8em;
+    margin: 0.3em auto; /* center each item */
+    box-sizing: border-box;
+  }
+}
