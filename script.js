@@ -1,90 +1,50 @@
-class ToDo {
-  constructor(toDoText, checked = false) {
-    this.toDoText = toDoText;
-    this.checked = checked;
-    this.createToDoElement();
+document.addEventListener("DOMContentLoaded", () => {
+  const toDoInput = document.querySelector("#to-do-input");
+  const toDoButton = document.querySelector("#to-do-button");
+  const toDoList = document.querySelector("#to-do-list");
+
+  // Load saved todos
+  const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  savedTodos.forEach(({ text, checked }) => addToDoElement(text, checked));
+
+  // Add new todo
+  function addToDo() {
+    const text = toDoInput.value.trim();
+    if (!text) return;
+    addToDoElement(text);
+    toDoInput.value = "";
+    saveTodos();
   }
 
-  createToDoElement() {
-    this.toDoElement = document.createElement("li");
-    this.toDoElement.textContent = this.toDoText;
+  function addToDoElement(text, checked = false) {
+    const li = document.createElement("li");
+    li.textContent = text;
+    if (checked) li.classList.add("checked");
 
-    if (this.checked) {
-      this.toDoElement.classList.add("checked");
-    }
-
-    this.toDoElement.addEventListener("click", () => {
-      this.checked = !this.checked; // Update state
-      this.toDoElement.classList.toggle("checked");
-      this.save(); // Save immediately
+    li.addEventListener("click", () => {
+      li.classList.toggle("checked");
+      saveTodos();
     });
 
-    this.toDoElement.addEventListener("dblclick", () => {
-      this.remove();
-      this.save(); // Save immediately
+    li.addEventListener("dblclick", () => {
+      li.remove();
+      saveTodos();
     });
+
+    toDoList.appendChild(li);
   }
 
-  save() {
-    ToDoMaker.saveToLocalStorage();
-  }
-
-  remove() {
-    this.toDoElement.remove();
-  }
-}
-
-
-class ToDoMaker {
-  constructor() {
-    this.toDoInput = document.querySelector("#to-do-input");
-    this.toDoButton = document.querySelector("#to-do-button");
-    this.toDoList = document.querySelector("#to-do-list");
-
-    this.todos = []; // Keep track of ToDo instances
-
-    this.makeEventListeners();
-    this.loadFromLocalStorage(); // Load saved todos on page load
-  }
-
-  addToDo() {
-    let toDoText = this.toDoInput.value.trim();
-    if (toDoText !== "") {
-      const toDo = new ToDo(toDoText);
-      this.todos.push(toDo);
-      this.toDoList.appendChild(toDo.toDoElement);
-      this.toDoInput.value = "";
-      toDo.save();
-    }
-  }
-
-  makeEventListeners() {
-    this.toDoButton.addEventListener("click", () => this.addToDo());
-    this.toDoInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") this.addToDo();
-    });
-  }
-
-  static saveToLocalStorage() {
-    const listItems = document.querySelectorAll("#to-do-list li");
-    const todos = [];
-    listItems.forEach(item => {
-      todos.push({
-        text: item.textContent,
-        checked: item.classList.contains("checked")
-      });
-    });
+  function saveTodos() {
+    const todos = Array.from(toDoList.children).map(li => ({
+      text: li.textContent,
+      checked: li.classList.contains("checked")
+    }));
     localStorage.setItem("todos", JSON.stringify(todos));
   }
 
-  loadFromLocalStorage() {
-    const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-    savedTodos.forEach(todoData => {
-      const toDo = new ToDo(todoData.text, todoData.checked);
-      this.todos.push(toDo);
-      this.toDoList.appendChild(toDo.toDoElement);
-    });
-  }
-}
-
-const makeItWork = new ToDoMaker();
+  // Event listeners
+  toDoButton.addEventListener("click", addToDo);
+  toDoInput.addEventListener("keypress", e => {
+    if (e.key === "Enter") addToDo();
+  });
+});
