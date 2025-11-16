@@ -42,15 +42,18 @@ This project addresses **common productivity challenges**:
 
 ## 📦 How to Use
 
-1. Open the **live demo** link below.  
+**1. Open the **live demo** link below.**
 
      **Live Demo:** [https://sarahborgelt.github.io/ToDoList/](https://sarahborgelt.github.io/ToDoList/)  
      **Source Code:** [GitHub Repository](https://github.com/SarahBorgelt/ToDoList)
 
-2. Type a task into the input box.  
-3. Click **"Add To Do"** or press `Enter` to add it to the list.  
-4. Click a task to mark it as complete.  
-5. Double-click a task to remove it.  
+**2. Type a task into the input box.**
+
+**3. Click **"Add To Do"** or press `Enter` to add it to the list.**
+
+**4. Click a task to mark it as complete.**
+
+**5. Double-click a task to remove it.**
 
 ---
 
