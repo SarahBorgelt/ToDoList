@@ -6,7 +6,7 @@ A simple, interactive **To-Do List web application** built with HTML, CSS, and J
 
 Users can **add tasks, mark them complete, and remove them**, showcasing DOM manipulation and event handling in JavaScript.
 
-![Screenshot](https://raw.githubusercontent.com/SarahBorgelt/ToDoList/main/ToDo.png)
+![Screenshot](ToDo.png)
 
 ---
 
