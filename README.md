@@ -44,8 +44,9 @@ This project addresses **common productivity challenges**:
 
 **1. Open the **live demo** link below.**
 
-     **Live Demo:** [https://sarahborgelt.github.io/ToDoList/](https://sarahborgelt.github.io/ToDoList/)  
-     **Source Code:** [GitHub Repository](https://github.com/SarahBorgelt/ToDoList)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Live Demo: [https://sarahborgelt.github.io/ToDoList/](https://sarahborgelt.github.io/ToDoList/)  
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Source Code: [GitHub Repository](https://github.com/SarahBorgelt/ToDoList)
 
 **2. Type a task into the input box.**
 
